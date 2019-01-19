@@ -15,11 +15,14 @@ var button = $("button");
         $("button").remove();
         $("p").remove();
         askQuestions();
+        $("form").show();
 })
 
 // Function that contains a for loop that will go through the questions array and ask the questions, as well as keep track of the score and answers picked by the user //
 
 function askQuestions(){
+
+    $("form").show();
 
     setTimer();
     
@@ -103,7 +106,7 @@ var triviaQuestions = [
         answer: [3]
         },
     
-    ];
+    ]; 
 
 // Function to set the timer from 30 seconds, if time runs out then unanswered goes up and new page appears saying correct answer and image //
 
@@ -140,7 +143,7 @@ function resetGame() {
 function answerCorrect(){
     correctAnswer++;
     $("#quesion-answer").append("Correct! The Answer is " + triviaQuestions[i].answer);
-    $("#answer").append(triviaQuestions[i].images);
+    $("#image").append(triviaQuestions[i].images);
     setTimeout(threeSeconds, 3000);
     
     function threeSeconds() {
@@ -153,7 +156,7 @@ function answerCorrect(){
 function answerIncorrect(){
     wrongAnswer++;
     $("#quesion-answer").append("Wrong! The Answer was " + triviaQuestions[i].answer);
-    $("#answer").append(triviaQuestions[i].images);
+    $("#image").append(triviaQuestions[i].images);
     setTimeout(threeSeconds, 3000);
     
     function threeSeconds() {
@@ -166,7 +169,7 @@ function answerIncorrect(){
 function timeRunout(){
     unanswered++;
     $("#quesion-answer").append("You Ran Out of Time! The Correct Answer was " + triviaQuestions[i].answer);
-    $("#answer").append(triviaQuestions[i].images);
+    $("#image").append(triviaQuestions[i].images);
     setTimeout(threeSeconds, 3000);
     
     function threeSeconds() {
@@ -197,6 +200,10 @@ $("#correct").hide();
 $("#incorrect").hide();
 $("#unanswered").hide();
 $("#restart-btn").hide();
+$("form").hide();
+// $(".button-02").hide();
+// $(".button-03").hide();
+// $(".button-04").hide();
 
 
 //end of document ready function//
