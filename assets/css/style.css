@@ -75,6 +75,22 @@ p {
 
 
 
-#answer {
+#correct, #incorrect, #unanswered {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color: black;
 
+}
+
+#restart-btn {
+    border: 3px solid rgb(245, 29, 198);
+    background-color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: rgb(245, 29, 198);
+    width: 25%;
+    padding: 10px;
+    margin: 0 auto;
+    font-weight: bold;
+    margin-top: 150px;
 }
