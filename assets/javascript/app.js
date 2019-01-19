@@ -7,16 +7,6 @@ var unanswered = 0;
 var timer = 30;
 var intervalId;
 
-// Hides the question choices buttons from the main screen //
-
-$("#last-page").hide();
-$("#correct").hide();
-$("#incorrect").hide();
-$("#unanswered").hide();
-$("#choices").hide();
-$("#restart-btn").hide();
-lastPage().remove();
-
 // Function to begin the game which removes the start button, the p tag and begins the questions //
 
 var button = $("button");
@@ -24,7 +14,6 @@ var button = $("button");
         $("#button").remove();
         $("button").remove();
         $("p").remove();
-        lastPage().remove();
         askQuestions();
 })
 
@@ -130,7 +119,6 @@ function decrement(){
         if (timer === 0){
             stop();
             timeRunout();
-            unanswered++;
         }
 }
 function stop(){
@@ -146,8 +134,6 @@ function resetGame() {
     timer = 30;
     askQuestions();
 }
-
-resetGame();
 
 // This function allows for a new screen to appear announcing that the question has been answered correctly //
 
@@ -200,10 +186,17 @@ function lastPage(){
     restart.click(function () {
         $("#restart-btn").remove();
         lastPage().remove();
-        askQuestions();
         resetGame();
     });
 }
+
+// Hides the last page content from the main screen //
+
+$("#last-page").hide();
+$("#correct").hide();
+$("#incorrect").hide();
+$("#unanswered").hide();
+$("#restart-btn").hide();
 
 
 //end of document ready function//
