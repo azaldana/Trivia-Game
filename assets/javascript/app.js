@@ -7,24 +7,21 @@ var app = $('#second-content');
 var correctAnswer = 0;
 var wrongAnswer = 0;
 var unanswered = 0;
-var timer;
 var remainingTime;
 var questionIndex = 0;
 var intervalId;
 
-
-
 // Function to begin the game which removes the start button, the p tag and begins the questions //
 
 function start(){
-    var $start = $('<button>Start Game</button>');
+    var $start = $('<button id="start">Start Game</button>');
     $start.on('click', askQuestions);
-        app.empty();
-        app.append($start);
-        correctAnswer = 0;
-        wrongAnswer = 0;
-        unanswered = 0;
-        questionIndex = 0;
+    app.empty();
+    app.append($start);
+    correctAnswer = 0;
+    wrongAnswer = 0;
+    unanswered = 0;
+    questionIndex = 0;
 }
 
 start();
@@ -41,15 +38,12 @@ function decrement(){
     $("#clock").text(remainingTime + " seconds");
 
         if (remainingTime === 0){
-            stop();
+            clearInterval(intervalId);
             showAnswer();
             // app.empty();
             // unanswered++;
             // app.append('<h2>Times Up! The correct answer was: ' + question.answer + '</h2>');
         }
-}
-function stop(){
-    clearInterval(intervalId);
 }
 
 // Function that contains a for loop that will go through the questions array and ask the questions, as well as keep track of the score and answers picked by the user //
@@ -60,9 +54,8 @@ function askQuestions(){
     $("p").remove();
 
     var question = triviaQuestions[questionIndex];
-    var $question = $('<div class="card">');
-    var clock = $('<div>Time Remaining: <span id ="clock">' + remainingTime + ' seconds' + '</span></div>');
-    // clock.append('Time Remaining' + remainingTime + 'seconds');
+    var $question = $('<div class="btn-group-vertical">');
+    var clock = $('<div id="time">Time Remaining: <span id ="clock">' + remainingTime + ' seconds' + '</span></div>');
     var $q = $('<h3>' + question.questions + '</h3>');
     var $button;
     timer = displayClock();
@@ -70,14 +63,10 @@ function askQuestions(){
     $question.append(clock);
     $question.append($q);
     
-
-    
     for (var i=0; i<question.choices.length; i++){
-        $button = $('<button>' + question.choices[i] + '</button>');
+        $button = $('<button id="choice">' + question.choices[i] + '</button>');
         $button.on('click', handleAnswer);
-
         $question.append($button);
-
     }
 
     app.append($question);
@@ -92,7 +81,7 @@ function handleAnswer(){
 function showAnswer(userAnswer) {
     question = triviaQuestions[questionIndex];
     app.empty();
-    $img = $('<img>').attr('src', question.images);
+    $img = question.images;
 
     if (userAnswer === question.answer) {
         correctAnswer++;
@@ -100,7 +89,7 @@ function showAnswer(userAnswer) {
         app.append($img);
     } else {
         wrongAnswer++;
-        app.append('<h2>Wrong! The answer was: ' + question.answer + '</h2>');
+        app.append('<h2>Wrong! The correct answer was: ' + question.answer + '</h2>');
         app.append($img);
     
         } if (remainingTime === 0){
@@ -119,16 +108,27 @@ function showAnswer(userAnswer) {
 }
 
 function showScore (){
-    $app.empty();
+    app.empty();
     var $score = $("<h2>Let's See How You Did:</h2>");
-    $app.append($score);
+    app.append($score);
     var correct = $('<p>Correct Answers: ' + correctAnswer + '</p>');
     var incorrect = $('<p>Incorrect Answers: ' + wrongAnswer + '</p>');
     var missed = $('<p>Unanswered Questions: ' + unanswered + '</p>');
-    $app.append(correct, incorrect, missed);
-
-    start();
+    app.append(correct, incorrect, missed);
+    var $redo = $('<button id="redo">Play Again?</button>');
+    $redo.on('click', askQuestions);
+    app.append($redo);
+    resetGame();
 }
+
+function resetGame(){
+    correctAnswer = 0;
+    wrongAnswer = 0;
+    unanswered = 0;
+    questionIndex = 0;
+}
+
+
 
 
 // Below is the array that holds all the trivia questions, choices and answers //
@@ -191,16 +191,6 @@ var triviaQuestions = [
     ]; 
 
 
-
-// Function to start or reset the game, will reset correct, incorrect, unanswered questions and will begin the quiz all over again //
-
-// function resetGame() {
-//     correctAnswer = 0;
-//     wrongAnswer = 0;
-//     unanswered = 0;
-//     timer = 30;
-//     askQuestions();
-// }
 
 
 //end of document ready function//

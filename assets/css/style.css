@@ -21,7 +21,7 @@ body {
     height: 600px;
 }
 
-#main-content h1 {
+h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 40px;
     color: rgb(24, 135, 226);
@@ -37,60 +37,80 @@ p {
     margin-top: 10px;
 }
 
-#button {
-    border: 3px solid rgb(245, 29, 198);
-    background-color: #fff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 30px;
-    color: rgb(245, 29, 198);
-    width: 25%;
-    padding: 10px;
-    margin: 0 auto;
-    font-weight: bold;
-    margin-top: 150px;
-}
-
-#question {
+#second-content, h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 25px;
-    color: #777;
-    margin-top: 25px;
+    color: #777; 
 }
 
-#choices {
+#choice {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 30px;
-    color: black;
-    margin-top: 25px;
+    font-size: 25px;
+    margin-right: 10px;
+    padding: 15px;
+    background-color: white;
+    border: none;
     font-weight: bold;
+    border: 2px solid rgb(245, 29, 198);
+    margin-top: 50px;
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+
 
 }
 
-#time {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    color: rgb(245, 29, 198);
-    /* margin-top: 25px; */
-}
-
-
-
-#correct, #incorrect, #unanswered {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
-    color: black;
-
-}
-
-#restart-btn {
+#start {
     border: 3px solid rgb(245, 29, 198);
     background-color: #fff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 30px;
     color: rgb(245, 29, 198);
-    width: 25%;
+    /* width: 25%; */
     padding: 10px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     font-weight: bold;
     margin-top: 150px;
 }
+
+#clock{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color: rgb(245, 29, 198);
+}
+
+#time{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    color: rgb(245, 29, 198);
+}
+
+h3 {
+    font-size: 20px;
+    color: #777; 
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 20px;
+    color: black; 
+    margin-bottom: 25px;
+    margin-top: 50px;
+}
+
+#redo {
+    border: 3px solid rgb(245, 29, 198);
+    background-color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    color: rgb(245, 29, 198);
+    /* width: 25%; */
+    padding: 10px;
+    /* margin: 0 auto; */
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+
+
