@@ -78,23 +78,25 @@ function handleAnswer(){
 function showAnswer(userAnswer) {
     question = triviaQuestions[questionIndex];
     app.empty();
-    var img = $('<div id="image"</div>');
+    var img = $('<div id="image"></div>');
     img.append("<img src=" + question.images + ">");
 
-    if (userAnswer === question.answer) {
+    if (remainingTime === 0){
+        unanswered++;
+        app.append('<h2>Times Up! The correct answer was: ' + question.answer + '</h2>');
+        app.append(img);
+        
+    } else if (userAnswer === question.answer) {
         correctAnswer++;
         app.append('<h2>Correct! The answer is: ' + question.answer + '</h2>');
         app.append(img);
+
     } else {
             wrongAnswer++;
             app.append('<h2>Wrong! The correct answer was: ' + question.answer + '</h2>');
             app.append(img);
     
-        } if (remainingTime === 0){
-            unanswered++;
-            app.append('<h2>Times Up! The correct answer was: ' + question.answer + '</h2>');
-            app.append(img);
-    }
+        } 
 
     questionIndex++;
 
