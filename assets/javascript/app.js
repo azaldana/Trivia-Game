@@ -152,7 +152,7 @@ var triviaQuestions = [
         answer: "Dil"
         },
     
-    {   questions: "What's the name of the fictional town where Rocket Power         takes place?",
+    {   questions: "What's the name of the fictional town where Rocket Power takes place?",
         choices: ["Ocean Beach", "Oceanside", "Ocean Shores", "Ocean City"],
         images:  "assets/images/rocket-power.jpg",
         answer: "Ocean Shores"
