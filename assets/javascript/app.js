@@ -70,10 +70,14 @@ function askQuestions(){
 
 }
 
+// Function that keeps track of the button the user chose and based on the showAnswer function will alert them if they got the answer wrong or right //
+
 function handleAnswer(){
     var value = $(this).text();
     showAnswer(value);
 }
+
+// Function that controls the score of the game. If the user selects the correct answer, "correct" will appear on the screen, same for if they selected the wrong answer or ran out of time //
 
 function showAnswer(userAnswer) {
     question = triviaQuestions[questionIndex];
@@ -107,6 +111,8 @@ function showAnswer(userAnswer) {
     }
 }
 
+// Function that shows the score at the end of the game. Also has a restart button to play the game again //
+
 function showScore (){
     app.empty();
     var $score = $("<h2>Let's See How You Did:</h2>");
@@ -121,6 +127,8 @@ function showScore (){
     app.append($redo);
     resetGame();
 }
+
+// Function that resets the game when the restart button is pressed //
 
 function resetGame(){
     correctAnswer = 0;
@@ -189,7 +197,4 @@ var triviaQuestions = [
     ]; 
 
 
-
-
-//end of document ready function//
 })
