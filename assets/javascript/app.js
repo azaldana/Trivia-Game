@@ -40,9 +40,6 @@ function decrement(){
         if (remainingTime === 0){
             clearInterval(intervalId);
             showAnswer();
-            // app.empty();
-            // unanswered++;
-            // app.append('<h2>Times Up! The correct answer was: ' + question.answer + '</h2>');
         }
 }
 
@@ -81,22 +78,23 @@ function handleAnswer(){
 function showAnswer(userAnswer) {
     question = triviaQuestions[questionIndex];
     app.empty();
-    $img = question.images;
+    var img = $('<div id="image"</div>');
+    img.append("<img src=" + question.images + ">");
 
     if (userAnswer === question.answer) {
         correctAnswer++;
         app.append('<h2>Correct! The answer is: ' + question.answer + '</h2>');
-        app.append($img);
+        app.append(img);
     } else {
-        wrongAnswer++;
-        app.append('<h2>Wrong! The correct answer was: ' + question.answer + '</h2>');
-        app.append($img);
+            wrongAnswer++;
+            app.append('<h2>Wrong! The correct answer was: ' + question.answer + '</h2>');
+            app.append(img);
     
         } if (remainingTime === 0){
             unanswered++;
             app.append('<h2>Times Up! The correct answer was: ' + question.answer + '</h2>');
-            app.append($img);
-        }
+            app.append(img);
+    }
 
     questionIndex++;
 
@@ -115,6 +113,7 @@ function showScore (){
     var incorrect = $('<p>Incorrect Answers: ' + wrongAnswer + '</p>');
     var missed = $('<p>Unanswered Questions: ' + unanswered + '</p>');
     app.append(correct, incorrect, missed);
+    clearInterval(intervalId);
     var $redo = $('<button id="redo">Play Again?</button>');
     $redo.on('click', askQuestions);
     app.append($redo);
@@ -128,63 +127,60 @@ function resetGame(){
     questionIndex = 0;
 }
 
-
-
-
 // Below is the array that holds all the trivia questions, choices and answers //
 
 var triviaQuestions = [
     {   questions: "What kind of animal is Rocko from Rocko's Modern Life?",
         choices: ["Dog", "Kangaroo", "Raccoon", "Wallaby"],
-        images:  ["images/rocko.jpg"],
+        images:  "assets/images/rocko.jpg",
         answer: "Wallaby"
         },
     
     {   questions: "What is Tommy Pickles' (Rugrats) brothers name?",
         choices: ["Dil", "Phillip", "Chuckie", "Stu"],
-        images:  ["images/rugrats-01.jpg"],
+        images:  "assets/images/rugrats-01.jpg",
         answer: "Dil"
         },
     
     {   questions: "What's the name of the fictional town where Rocket Power         takes place?",
         choices: ["Ocean Beach", "Oceanside", "Ocean Shores", "Ocean City"],
-        images:  ["images/rocket-power.jpg"],
+        images:  "assets/images/rocket-power.jpg",
         answer: "Ocean Shores"
         },
     
     {   questions: "In which NYC borough does Arnold from 'Hey Arnold' live?",
         choices: ["Bronx", "Brooklyn", "Manhattan", "Queens"],
-        images:  ["images/hey-arnold.jpg"],
+        images:  "assets/images/hey-arnold.jpg",
         answer: "Brooklyn"
         },
     
     {   questions: "Who does Doug Funny have a crush on in the series Doug?",
         choices: ["Patti Mayonnaise", "Beebe Bluff", "Theda Funnie", "Connie Benge"],
-        images:  ["images/doug.jpg"],
+        images:  "assets/images/doug.jpg",
         answer: "Patti Mayonnaise"
         },
     
     {   questions: "What are the names of the Angry Beavers?",
         choices: ["Tom and Jerry", "Bob and Evan", "Norbert and Daggett", "Curtis and Leo"],
-        images:  ["images/angry-beavers.jpg"],
+        images:  "assets/images/angry-beavers.jpg",
         answer: "Norbert and Daggett"
         },
     
     {   questions: "What town is Spongebob from in Spongebob Squarepants?",
         choices: ["Krusty Krab", "Rock Bottom", "Jellyfish Fields", "Bikini Bottom"],
-        images:  ["images/spongebob.jpg"],
+        images:  "assets/images/spongebob.jpg",
         answer: "Bikini Bottom"
         },
     
     {   questions: "What were the names of the twins on Rugrats?",
         choices: ["Bill and Jill", "Phil and Lill", "Hank and Hannah", "Sally and Sam"],
-        images:  ["images/rugrats-02.jpg"],
+        images:  "assets/images/rugrats-02.jpg",
         answer: "Phil and Lill"
         },
     
     {   questions: "In Ren and Stimpy, what kind of dog was Ren?",
         choices: ["A Terrier", "A Corgi", "A Bulldog", "A Chihuahua"],
-        images:  ["images/ren-stimpy.jpg"],
+        images:  "assets/images/ren-stimpy.jpg",
         answer: "A Chihuahua"
         },
     
