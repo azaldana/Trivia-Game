@@ -1,15 +1,19 @@
 # 90's Cartoon Trivia Game
 
-https://azaldana.github.io/Trivia-Game/
+Front-end web application.
 
-You'll create a trivia game that shows only one question until the player answers it or their time runs out.
-If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input.
+[Trivia Game Link](https://azaldana.github.io/Trivia-Game/ "Trivia Game Link")
 
-The scenario is similar for wrong answers and time-outs.
+## Description
+This trivia game application asks the user questions based on 90's cartoons. The user has a limited time to answer the questions before the time runs out and moves on to the next question. At the end of the game, the user will see how well they did by a total score and the opportunity to play the game again.
 
-The player will have 30 seconds to answer each question before the timer runs out.
+## Sample View
 
-If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question.
-If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question.
+![Trivia Game Screenshot](/assets/images/screenshot.jpg/)
 
-On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page).
+## Technology
+
++ Javascript
++ jQuery
++ HTML5
++ CSS3
